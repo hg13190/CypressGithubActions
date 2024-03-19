@@ -1,0 +1,22 @@
+{
+  "name": "cypressgithubactions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hg13190/CypressGithubActions.git"
+  },
+  "author": "harsh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hg13190/CypressGithubActions/issues"
+  },
+  "homepage": "https://github.com/hg13190/CypressGithubActions#readme",
+  "devDependencies": {
+    "cypress": "^13.7.0"
+  }
+}
