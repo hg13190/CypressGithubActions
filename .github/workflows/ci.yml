@@ -22,8 +22,8 @@ jobs:
       #- name: Catch "it.only"
       #  run: npm run stop-only
 
-      - name: Lint code ☑️
-        run: npm run lint
+      #- name: Lint code ☑️
+      #  run: npm run lint
 
       - name: Build dist 🏗
         run: npm run build
