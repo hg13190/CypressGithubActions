@@ -19,7 +19,7 @@ jobs:
 
       # make sure we did not leave "it.only" accidentally
       # https://github.com/bahmutov/stop-only
-      - name: Catch "it.only" 🫴
+      - name: Catch "it.only"
         run: npm run stop-only
 
       - name: Lint code ☑️
