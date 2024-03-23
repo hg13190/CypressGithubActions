@@ -17,11 +17,27 @@ jobs:
         with:
           runTests: false
 
+      # make sure we did not leave "it.only" accidentally
+      # https://github.com/bahmutov/stop-only
+      #- name: Catch "it.only"
+      #  run: npm run stop-only
+
+      #- name: Lint code ☑️
+      #  run: npm run lint
+
+      #- name: Build dist 🏗
+      #  run: npm run build
+
       - name: Run Cypress tests 🧪
         uses: cypress-io/github-action@v5
         with:
           install: false
           browser: chrome
+        # pass the machine index and the total number
+        env:
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
+
         # after the test run completes store videos and any screenshots
       - uses: actions/upload-artifact@v4
         # add the line below to store screenshots only on failures
@@ -35,7 +51,3 @@ jobs:
           name: cypress-videos
           path: cypress/videos
           if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
-        # pass the machine index and the total number
-        env:
-          SPLIT: ${{ strategy.job-total }}
-          SPLIT_INDEX: ${{ strategy.job-index }}
