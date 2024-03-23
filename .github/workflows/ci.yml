@@ -11,11 +11,11 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v4
 
-      - name: Install everything 📦
+      #- name: Install everything 📦
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v6
-        with:
-          runTests: false
+      #  uses: cypress-io/github-action@v6
+      #  with:
+      #    runTests: false
           
       - name: Run Cypress tests 🧪
         uses: cypress-io/github-action@v6
