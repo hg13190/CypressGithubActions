@@ -1,12 +1,38 @@
-name: End-to-end tests
+name: ci
 on: push
 jobs:
-  cypress-run:
+  test:
     runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2]
     steps:
-      - name: Checkout
+      - name: Checkout 🛎
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+
+      - name: Install everything 📦
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v5
+        with:
+          runTests: false
+
+      # make sure we did not leave "it.only" accidentally
+      # https://github.com/bahmutov/stop-only
+      - name: Catch "it.only" 🫴
+        run: npm run stop-only
+
+      - name: Lint code ☑️
+        run: npm run lint
+
+      - name: Build dist 🏗
+        run: npm run build
+
+      - name: Run Cypress tests 🧪
+        uses: cypress-io/github-action@v5
+        with:
+          install: false
+        # pass the machine index and the total number
+        env:
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
