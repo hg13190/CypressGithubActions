@@ -25,8 +25,8 @@ jobs:
       #- name: Lint code ☑️
       #  run: npm run lint
 
-      - name: Build dist 🏗
-        run: npm run build
+      #- name: Build dist 🏗
+      #  run: npm run build
 
       - name: Run Cypress tests 🧪
         uses: cypress-io/github-action@v5
