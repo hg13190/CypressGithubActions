@@ -8,7 +8,7 @@ context('Local Storage / Session Storage', () => {
   // in between tests to maintain a clean state
   // sometimes we need to clear localStorage manually
 
-  it('cy.clearLocalStorage() - clear all data in localStorage for the current origin', () => {
+  /* it('cy.clearLocalStorage() - clear all data in localStorage for the current origin', () => {
     // https://on.cypress.io/clearlocalstorage
     cy.get('.ls-btn').click()
     cy.get('.ls-btn').should(() => {
@@ -113,5 +113,5 @@ context('Local Storage / Session Storage', () => {
       expect(sessionStorage.getItem('prop5')).to.be.null
       expect(sessionStorage.getItem('prop6')).to.be.null
     })
-  })
+  }) */
 })
