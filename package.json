@@ -19,6 +19,7 @@
   "homepage": "https://github.com/hg13190/CypressGithubActions#readme",
   "devDependencies": {
     "cypress": "^11.2.0",
-    "cypress-split": "^1.21.0"
+    "cypress-split": "^1.21.0",
+    "cypress-xpath": "^2.0.1"
   }
 }

@@ -34,6 +34,10 @@ describe('example to-do app', () => {
     cy.get('.todo-list li').last().should('have.text', 'Walk the dog')
   })
 
+  it('cypress xpath', () => {
+    cy.xpath('//div[@class="todoapp"]//h1').should('contain.text', 'todos')
+  })
+
   it('can add new todo items', () => {
     // We'll store our item text in a variable so we can reuse it
     const newItem = 'Feed the cat'
